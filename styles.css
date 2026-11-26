@@ -305,6 +305,14 @@ main.container {
 .note-green { background: #ecfdf5; border-color: #16a34a; }
 .note-amber { background: #fffbeb; border-color: #d97706; color: #78350f; }
 
+.inline-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: #1d4ed8;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 /* Era Tabs */
 .era-tabs {
   display: grid;
