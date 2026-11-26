@@ -2,60 +2,45 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>สื่อการสอน Arty17 AIM — หลักการหาพิกัดจากโดรนและการปรับการยิง</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>คู่มือการทำงานระบบ Arty17 AIM — หลักการหาพิกัดและการปรับการยิง</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Progress Bar -->
   <div class="reading-progress" id="readingProgress"></div>
 
-  <!-- Top Navigation -->
+  <!-- Mobile-first sticky header -->
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="brand" href="#hero">
+      <a class="brand" href="#top">
         <span class="brand-badge">Arty17 AIM</span>
-        <span class="brand-title">สื่อการสอนหลักการหาพิกัด &amp; ปรับการยิง</span>
+        <span class="brand-title">คู่มือส่งมอบงาน</span>
       </a>
-      <nav class="nav-links" aria-label="บทเรียน">
-        <a href="#ch1">บทที่ 1 ระบบ &amp; ที่มา</a>
-        <a href="#ch2">บทที่ 2 พื้นราบ</a>
-        <a href="#ch3">บทที่ 3 เดินเส้น 3 มิติ</a>
-        <a href="#ch4">บทที่ 4 ปรับการยิง</a>
-        <a href="#ch5">บทที่ 5 แบบทดสอบ</a>
+      <nav class="nav-links" aria-label="หัวข้อ">
+        <a href="#ch1">1. ที่มาและระบบ</a>
+        <a href="#ch2">2. พื้นราบ</a>
+        <a href="#ch3">3. เดินเส้น 3 มิติ</a>
+        <a href="#ch4">4. ปรับการยิง</a>
+        <a href="#ch5">5. สิ่งที่ต้องระวัง</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="hero" class="hero">
+  <!-- Clean, grounded header -->
+  <section id="top" class="hero">
     <div class="container hero-inner">
-      <div class="hero-pill">กองพันทหารปืนใหญ่ที่ 17 กรมทหารปืนใหญ่ที่ 4 • ฉบับเข้าใจง่าย ทดลองปรับได้จริง</div>
-      <h1>เข้าใจหลักการหาพิกัดจากโดรน<br/>และการคำนวณปรับการยิง ภายใน 15 นาที</h1>
+      <div class="hero-unit">กองพันทหารปืนใหญ่ที่ 17 กรมทหารปืนใหญ่ที่ 4</div>
+      <h1>คู่มือการทำงานระบบ Arty17 AIM<br/>หลักการหาพิกัดจากโดรนและการปรับการยิง</h1>
       <p class="hero-desc">
-        เรียนรู้ตั้งแต่ศูนย์แบบไม่ต้องใช้ภาษาโค้ด — ลองขยับโดรน ก้มกล้อง ยิงเส้นสายตาชนภูเขา 3 มิติทีละก้าว
-        และลากจุดตกกระสุนบนแผนที่เพื่อดูคำสั่งปรับ <strong>ซ้าย/ขวา · เพิ่ม/ลด</strong> แบบเห็นภาพจริง
+        เอกสารนี้ทำไว้ให้คนที่มารับช่วงต่อดูแลหรือใช้งานระบบ ได้เข้าใจที่มาและวิธีคิดของโปรแกรมตั้งแต่ต้นจนจบ
+        อธิบายด้วยภาษาธรรมดา พร้อมภาพจำลองให้ลองเลื่อนปรับดูด้วยตัวเองได้บนมือถือ
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#ch3">🚀 ลองเล่นเดินเส้นสายตา 3 มิติ</a>
-        <a class="btn btn-outline" href="#ch1">เริ่มเรียนตั้งแต่บทที่ 1</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-card">
-          <div class="stat-num">5 บทเรียน</div>
-          <div class="stat-lbl">เรียงจากง่ายไปละเอียด</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">3 โมชั่นกราฟิก</div>
-          <div class="stat-lbl">ปรับค่าเล่นได้สด ๆ ทุกจุด</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">ภาษาไทย 100%</div>
-          <div class="stat-lbl">อธิบายง่ายเหมือนมีครูสอน</div>
-        </div>
+        <a class="btn btn-primary" href="#ch1">เริ่มอ่านตั้งแต่เรื่องที่ 1</a>
+        <a class="btn btn-outline" href="#ch3">ข้ามไปดูวิธีเดินเส้น 3 มิติ</a>
       </div>
     </div>
   </section>
@@ -63,99 +48,118 @@
   <main class="container">
 
     <!-- ===================================================================== -->
-    <!-- CHAPTER 1: Origin & System Overview                                   -->
+    <!-- PART 1: Origin & System Handoff Overview                              -->
     <!-- ===================================================================== -->
     <section id="ch1" class="chapter-card">
       <div class="chapter-header">
-        <span class="chapter-tag">บทที่ 1</span>
+        <span class="chapter-tag">เรื่องที่ 1</span>
         <div>
-          <h2>Arty17 AIM พัฒนามาจากไหน และทำงานยังไง?</h2>
-          <p class="chapter-sub">แนวคิดการประยุกต์โดรนถ่ายภาพที่มีอยู่แล้วในหน่วย ให้เป็นเครื่องมือช่วยหาพิกัดและปรับการยิง</p>
+          <h2>ระบบนี้ทำขึ้นมาทำไม และแต่ละส่วนทำงานต่อกันยังไง</h2>
+          <p class="chapter-sub">ภาพรวมสำหรับผู้รับช่วงต่อ — รู้จักที่มา รุ่นของแอป และเส้นทางข้อมูล</p>
         </div>
       </div>
 
-      <div class="info-box info-blue">
-        <strong>จุดเริ่มต้น:</strong> เวลาออกสนามจริง ผู้ตรวจการณ์หน้ามักเจอภูเขาหรือต้นไม้บังเป้าหมาย จะซื้ออุปกรณ์เฉพาะทางก็ราคาสูงมาก
-        จึงเกิดแนวคิดนำ <strong>โดรนถ่ายภาพทั่วไปของหน่วย มาต่อกับมือถือ Android</strong> เพื่อดูภาพสด หาพิกัดเป้าหมาย และคิดค่าปรับการยิงได้ทันที
+      <p class="body-p">
+        เวลาออกสนามจริง ปัญหาที่เจอบ่อยคือผู้ตรวจการณ์หน้ามองไม่เห็นเป้าหมายเพราะมีภูเขาหรือต้นไม้บัง
+        ครั้นจะจัดหาโดรนทหารที่มีเลเซอร์วัดระยะก็ใช้งบสูงมาก หน่วยจึงเริ่มคิดเอา
+        <strong>โดรนถ่ายภาพที่มีอยู่แล้ว มาต่อกับมือถือ Android</strong> เพื่อดึงภาพสดและค่าจากตัวโดรนมาคำนวณพิกัดเป้าหมาย
+        แล้วคิดค่าปรับการยิง ซ้าย/ขวา เพิ่ม/ลด ให้เสร็จในเครื่องเดียว
+      </p>
+
+      <div class="note-box note-blue">
+        <strong>สิ่งที่คนรับช่วงต่อควรรู้เกี่ยวกับรุ่นของแอป:</strong>
+        ตอนนี้แอปที่หน่วยใช้งานจริงมี 2 รุ่นคู่กัน คือ <strong>รุ่น V4</strong> (สำหรับโดรน DJI รุ่นเก่า เช่น Mavic 2, Phantom 4)
+        และ <strong>รุ่น V5</strong> (สำหรับโดรนรุ่นใหม่ เช่น Mini 3/4 Pro, Mavic 3 Enterprise, Matrice 30/300/350)
+        ทั้งสองรุ่นลงอยู่ในมือถือเครื่องเดียวกันได้ และส่งข้อมูลขึ้นหน้าจอผู้บังคับบัญชาเดียวกัน
       </div>
 
-      <h3 class="sub-title">วิวัฒนาการ 4 ยุค (คลิกดูแต่ละยุค)</h3>
+      <h3 class="sub-title">ความเป็นมา 4 ช่วง (แตะเพื่ออ่านแต่ละช่วง)</h3>
       <div class="era-tabs" id="eraTabs">
-        <button class="era-btn active" data-era="0">ยุคที่ 1<br/><small>เครื่องมือบนเว็บ</small></button>
-        <button class="era-btn" data-era="1">ยุคที่ 2<br/><small>แอป Android V4</small></button>
-        <button class="era-btn" data-era="2">ยุคที่ 3<br/><small>รุ่น V5 + 3 มิติ</small></button>
-        <button class="era-btn" data-era="3">ยุคที่ 4<br/><small>รุ่น Standalone</small></button>
+        <button class="era-btn active" data-era="0">ช่วงที่ 1<br/><small>หน้าเว็บคิดเลข</small></button>
+        <button class="era-btn" data-era="1">ช่วงที่ 2<br/><small>แอปมือถือ V4</small></button>
+        <button class="era-btn" data-era="2">ช่วงที่ 3<br/><small>รุ่น V5 + 3 มิติ</small></button>
+        <button class="era-btn" data-era="3">ช่วงที่ 4<br/><small>รุ่น Standalone</small></button>
       </div>
       <div class="era-detail" id="eraDetail"></div>
 
-      <h3 class="sub-title">การทำงานของระบบ 4 ขั้นตอน (ลองสลับโหมดออนไลน์ / ออฟไลน์)</h3>
+      <h3 class="sub-title">เส้นทางข้อมูล 4 ขั้นตอน (ลองสลับดูตอนมีเน็ต กับ ตอนไม่มีเน็ต)</h3>
+      <p class="body-p">
+        เวลาใช้งานจริงมักมีคนถามว่า <em>"ถ้าเข้าป่าไม่มีสัญญาณเน็ต แอปจะยังบินและหาพิกัดได้ไหม?"</em>
+        ลองกดสลับปุ่มด้านล่าง แล้วแตะที่กล่องแต่ละขั้นเพื่อดูว่าส่วนไหนยังทำงานได้ และส่วนไหนจะพักรอเน็ตครับ
+      </p>
+
       <div class="mode-toggle-bar">
-        <button class="mode-pill active" id="btnSysOnline">🌐 โหมดออนไลน์ (มีอินเทอร์เน็ต)</button>
-        <button class="mode-pill" id="btnSysOffline">📵 โหมดออฟไลน์ (กลางป่าไม่มีเน็ต)</button>
+        <button class="mode-pill active" id="btnSysOnline">ตอนมีอินเทอร์เน็ต</button>
+        <button class="mode-pill" id="btnSysOffline">ตอนไม่มีเน็ต (ออฟไลน์)</button>
       </div>
 
       <div class="pipeline" id="sysPipeline">
-        <div class="pipe-node active" data-step="0">
-          <div class="pipe-icon">🚁</div>
-          <div class="pipe-title">1. โดรนและรีโมต</div>
+        <button type="button" class="pipe-node active" data-step="0">
+          <div class="pipe-num">1</div>
+          <div class="pipe-title">โดรนและรีโมต</div>
           <div class="pipe-sub">DJI V4 / V5</div>
-        </div>
-        <div class="pipe-arrow flowing" id="arrow12">➜</div>
-        <div class="pipe-node" data-step="1">
-          <div class="pipe-icon">📱</div>
-          <div class="pipe-title">2. แอปฝั่งนักบิน</div>
-          <div class="pipe-sub">โหมด ผตน. บนมือถือ</div>
-        </div>
-        <div class="pipe-arrow flowing" id="arrow23">➜</div>
-        <div class="pipe-node" data-step="2" id="nodeCloud">
-          <div class="pipe-icon">☁️</div>
-          <div class="pipe-title">3. ศูนย์ข้อมูลกลาง</div>
-          <div class="pipe-sub" id="cloudSub">ซิงก์ตำแหน่งสด</div>
-        </div>
-        <div class="pipe-arrow flowing" id="arrow34">➜</div>
-        <div class="pipe-node" data-step="3" id="nodeCmd">
-          <div class="pipe-icon">🗺️</div>
-          <div class="pipe-title">4. หน้าจอ ผบช.</div>
+        </button>
+        <div class="pipe-arrow flowing" id="arrow12">→</div>
+        <button type="button" class="pipe-node" data-step="1">
+          <div class="pipe-num">2</div>
+          <div class="pipe-title">แอปฝั่งนักบิน</div>
+          <div class="pipe-sub">คำนวณบนมือถือ</div>
+        </button>
+        <div class="pipe-arrow flowing" id="arrow23">→</div>
+        <button type="button" class="pipe-node" data-step="2" id="nodeCloud">
+          <div class="pipe-num">3</div>
+          <div class="pipe-title">ระบบฝากข้อมูลกลาง</div>
+          <div class="pipe-sub" id="cloudSub">ส่งพิกัดสด</div>
+        </button>
+        <div class="pipe-arrow flowing" id="arrow34">→</div>
+        <button type="button" class="pipe-node" data-step="3" id="nodeCmd">
+          <div class="pipe-num">4</div>
+          <div class="pipe-title">หน้าจอ ผบช.</div>
           <div class="pipe-sub">แผนที่รวม V4 + V5</div>
-        </div>
+        </button>
       </div>
       <div class="pipe-desc" id="pipeDesc"></div>
     </section>
 
     <!-- ===================================================================== -->
-    <!-- CHAPTER 2: Flat Terrain Interactive Simulator                         -->
+    <!-- PART 2: Flat Terrain Calculation                                      -->
     <!-- ===================================================================== -->
     <section id="ch2" class="chapter-card">
       <div class="chapter-header">
-        <span class="chapter-tag">บทที่ 2</span>
+        <span class="chapter-tag">เรื่องที่ 2</span>
         <div>
-          <h2>หลักการหาพิกัดแบบพื้นราบ (สามเหลี่ยมมุมฉากกลางอากาศ)</h2>
-          <p class="chapter-sub">โดรนไม่มีเลเซอร์วัดระยะ แล้วรู้ได้ยังไงว่าเป้าหมายอยู่ห่างไปกี่เมตร? ลองเลื่อนปรับดูเลยครับ!</p>
+          <h2>วิธีหาพิกัดแบบพื้นราบ (พื้นฐานที่ต้องเข้าใจก่อน)</h2>
+          <p class="chapter-sub">ทำไมกล้องธรรมดาที่ไม่มีเลเซอร์วัดระยะ ถึงรู้ได้ว่าเป้าหมายอยู่ไกลกี่เมตร</p>
         </div>
       </div>
 
-      <p class="lead-text">
-        โดรนรู้ 4 อย่างตลอดเวลา คือ <strong>พิกัดตัวเอง, ความสูง (H), มุมก้มกล้อง และทิศเข็มทิศ</strong>
-        เส้นดิ่งจากโดรนลงพื้น + พื้นดินถึงเป้า + เส้นสายตากล้อง จะประกอบเป็น <strong>สามเหลี่ยมมุมฉาก</strong>
-        ทำให้หาระยะทางราบได้ทันทีด้วยสูตร:
+      <p class="body-p">
+        ตัวโดรนส่งค่ากลับมาให้มือถือตลอดเวลา 4 อย่าง คือ <strong>1) พิกัด GPS ของตัวโดรน</strong>,
+        <strong>2) ความสูง</strong>, <strong>3) มุมก้มของกล้อง</strong> และ <strong>4) ทิศที่หน้ากล้องหันไป</strong>
+        พอลากเส้นดิ่งจากโดรนลงพื้น เส้นราบไปหาเป้า และเส้นสายตาจากกล้องลงไปที่เป้า มันจะกลายเป็น
+        <strong>สามเหลี่ยมมุมฉาก</strong> ทันที
+      </p>
+      <p class="body-p">
+        ดังนั้นเราจึงหาระยะทางราบจากใต้โดรนถึงเป้าหมายได้ด้วยสูตรเดียวคือ
         <span class="inline-formula">ระยะทางราบ = ความสูงโดรน ÷ tan(มุมก้มกล้อง)</span>
+        พอรู้ระยะทางราบกับทิศที่กล้องชี้แล้ว โปรแกรมก็แค่วัดระยะจากจุดที่โดรนลอยอยู่ออกไปตามทิศนั้นบนแผนที่
+        ก็จะได้พิกัดเป้าหมายทันที (แล้วแปลงโชว์เป็นพิกัดกริดทหารให้อัตโนมัติ)
       </p>
 
       <div class="sim-layout">
         <div class="sim-canvas-wrap">
-          <canvas id="flatCanvas" width="900" height="470"></canvas>
+          <canvas id="flatCanvas" width="900" height="480"></canvas>
           <div class="preset-bar">
-            <span>ลองกดมุมยอดนิยม:</span>
-            <button class="chip" data-flat-pitch="60">ก้ม 60° (ใกล้/แม่นมาก)</button>
-            <button class="chip" data-flat-pitch="45">ก้ม 45° (ระยะเท่าความสูงเป๊ะ!)</button>
-            <button class="chip" data-flat-pitch="30">ก้ม 30° (กำลังดี)</button>
-            <button class="chip chip-warn" data-flat-pitch="8">ก้ม 8° (ตื้นมาก — ดูความเพี้ยน!)</button>
+            <button type="button" class="chip" data-flat-pitch="60">ก้ม 60° (ใกล้/นิ่ง)</button>
+            <button type="button" class="chip" data-flat-pitch="45">ก้ม 45° (เท่าความสูง)</button>
+            <button type="button" class="chip" data-flat-pitch="30">ก้ม 30° (กำลังดี)</button>
+            <button type="button" class="chip chip-warn" data-flat-pitch="8">ก้ม 8° (ตื้นเกินไป)</button>
           </div>
         </div>
 
         <div class="sim-controls">
           <div class="control-group">
-            <label for="flatAlt">ความสูงโดรนเหนือพื้น (H): <strong id="flatAltVal">100 ม.</strong></label>
+            <label for="flatAlt">ความสูงโดรนเหนือพื้น: <strong id="flatAltVal">100 ม.</strong></label>
             <input type="range" id="flatAlt" min="20" max="300" step="5" value="100" />
           </div>
 
@@ -166,7 +170,7 @@
 
           <div class="readout-grid">
             <div class="readout-box">
-              <div class="r-lbl">ระยะทางราบถึงเป้าหมาย</div>
+              <div class="r-lbl">ระยะทางราบถึงเป้า</div>
               <div class="r-val" id="flatDistOut">173.2 ม.</div>
             </div>
             <div class="readout-box">
@@ -176,59 +180,71 @@
           </div>
 
           <div class="sensitivity-box" id="flatWarnBox">
-            <div class="sens-title">ตัววัดความไวต่อความคลาดเคลื่อน</div>
+            <div class="sens-title">ผลของมุมก้มกล้องต่อความแม่นยำ</div>
             <div class="sens-body" id="flatSensText"></div>
           </div>
 
-          <div class="mini-note">
-            <strong>จุดอ่อนของวิธีพื้นราบ:</strong> สูตรนี้แอบสมมติว่าพื้นตรงเป้าสูงเท่าพื้นใต้โดรนเป๊ะ ๆ
-            ถ้าข้างหน้าเป็น <strong>ภูเขา</strong> หรือ <strong>หุบเขา</strong> พิกัดจะเพี้ยนทันที — ไปดูวิธีแก้ในบทที่ 3 ครับ!
+          <div class="note-box note-amber">
+            <strong>ทำไมวิธีพื้นราบอย่างเดียวถึงไม่พอ:</strong>
+            สูตรนี้ตั้งสมมติฐานว่าพื้นตรงเป้าสูงเท่าพื้นใต้โดรนเป๊ะ ๆ ถ้าข้างหน้าเป็น <strong>เนินเขา</strong>
+            สายตาจะชนไหล่เขาก่อน แต่สูตรพื้นราบไม่รู้จึงคำนวณทะลุเขาไปไกลเกินจริง ส่วนถ้าเป็น <strong>หุบเขา</strong>
+            จะคำนวณสั้นกว่าความจริง นี่คือเหตุผลที่ต้องใช้วิธีในเรื่องที่ 3 ครับ
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===================================================================== -->
-    <!-- CHAPTER 3: 3D Ray Marching Interactive Motion Graphic                 -->
+    <!-- PART 3: 3D Ray Marching (Deep, Plain-Thai Explanation + Motion)       -->
     <!-- ===================================================================== -->
     <section id="ch3" class="chapter-card highlight-card">
       <div class="chapter-header">
-        <span class="chapter-tag tag-green">บทที่ 3 • ไฮไลต์สำคัญ</span>
+        <span class="chapter-tag tag-green">เรื่องที่ 3</span>
         <div>
-          <h2>การเดินเส้นสายตา 3 มิติทีละก้าว (Ray Marching + ภูเขาจริง)</h2>
-          <p class="chapter-sub">ก้าวไปทางตรงบนแนวราบทีละก้าวเหมือนเพื่อนเดินถือไม้บรรทัด — สร้างสามเหลี่ยมมุมฉากซ้อนกันจนชนภูเขา!</p>
+          <h2>วิธีเดินเส้นสายตาบนภูเขา 3 มิติ (Ray Marching)</h2>
+          <p class="chapter-sub">เข้าใจเรื่อง “ก้าวไปทางตรงบนแนวราบ” และ “สามเหลี่ยมมุมฉากซ้อนกันทีละก้าว”</p>
         </div>
       </div>
 
-      <div class="info-box info-green">
-        <strong>จำง่าย ๆ ใน 2 บรรทัด:</strong>
-        (1) <strong>การก้าว</strong> คือการเดินเป็น <strong>ทางตรงในแนวราบ</strong> ไปข้างหน้าทีละก้าว (เช่น ก้าวละ 10 ม., 20 ม., 30 ม., ...)
-        (2) <strong>การเช็กในแต่ละก้าว</strong> คือวัดในแนวดิ่งว่า <em>“ลำแสงเฉียงตอนนี้ลดระดับลงมาต่ำกว่าพื้นภูเขาหรือยัง?”</em>
-        — ถ้ายังสูงกว่าพื้นก็ <strong>เดินต่อ</strong> ทันทีที่ต่ำกว่าพื้นก็ <strong>หยุด!</strong> แล้วแบ่งสัดส่วนหาจุดชนเป๊ะ ๆ ระหว่างสองก้าวนั้น
+      <p class="body-p">
+        ก่อนอื่นต้องเข้าใจความสูงของโดรนก่อนครับ เลขความสูงที่โชว์บนหน้าจอโดรน (เช่น 120 ม.)
+        <strong>ไม่ได้วัดจากระดับน้ำทะเล</strong> แต่วัดจาก <strong>พื้นตรงจุดที่เราปล่อยโดรนขึ้นบิน</strong>
+        โปรแกรมจึงต้องไปดึงความสูงเหนือระดับน้ำทะเลของจุดปล่อยโดรนมาก่อน แล้วบวกกับความสูงที่โดรนบินขึ้นมา
+        เพื่อให้ความสูงของโดรนอยู่บนไม้บรรทัดเดียวกับแผนที่ความสูงภูเขา
+      </p>
+
+      <div class="note-box note-green">
+        <strong>หลักการเดินเช็กทีละก้าว (นึกภาพตามนี้จะเข้าใจทันที):</strong><br/>
+        ให้คิดว่าโดรนเปิด <strong>ไฟฉายเลเซอร์ส่องเฉียงลงไปที่ภูเขา</strong> แล้วมีเพื่อนคนหนึ่งเริ่มยืนอยู่ใต้โดรน
+        จากนั้นเพื่อน <strong>เดินตรงไปข้างหน้าบนแนวราบทีละก้าว</strong> (ไม่ได้เดินลงตามทางทแยง)
+        ทุกครั้งที่หยุดเท้า เพื่อนจะเงยหน้าวัดดูว่า <em>“ตรงระยะนี้ ลำแสงเลเซอร์อยู่สูงจากน้ำทะเลกี่เมตร?”</em>
+        (คิดจากสามเหลี่ยมมุมฉากที่ขยายฐานออกไปทีละก้าว) แล้วเทียบกับ <em>“พื้นภูเขาใต้เท้าสูงจากน้ำทะเลกี่เมตร?”</em><br/>
+        • ถ้าลำแสงยังสูงกว่าพื้น → <strong>ยังไม่ชน เดินตรงต่อไปอีกก้าว</strong><br/>
+        • ทันทีที่ลำแสงต่ำกว่าพื้น → <strong>หยุดทันที!</strong> แสดงว่าลำแสงชนไหล่เขาไปแล้วระหว่างก้าวก่อนหน้ากับก้าวนี้
+        แล้วโปรแกรมจะแบ่งสัดส่วนช่วงนั้นเพื่อหาระยะชนที่แม่นยำลงระดับเมตร
       </div>
 
-      <!-- Terrain & Playback Bar -->
       <div class="rm-toolbar">
         <div class="rm-terrain-picks" id="terrainPicks">
-          <span>เลือกรูปแบบภูมิประเทศ:</span>
-          <button class="chip active" data-terrain="hill">⛰️ เนินเขาลาดขึ้น</button>
-          <button class="chip" data-terrain="valley">🏞️ หุบเขาลึก</button>
-          <button class="chip" data-terrain="ridge">🏔️ สองสันเขา (มีเนินบัง)</button>
+          <span class="tool-lbl">ลองเปลี่ยนภูมิประเทศ:</span>
+          <button type="button" class="chip active" data-terrain="hill">เนินเขาลาดขึ้น</button>
+          <button type="button" class="chip" data-terrain="valley">หุบเขาลึก</button>
+          <button type="button" class="chip" data-terrain="ridge">มีสันเขาบังหน้า</button>
         </div>
         <div class="rm-playback">
-          <button class="btn btn-sm btn-play" id="btnRmPlay">▶ เล่นเดินทีละก้าว</button>
-          <button class="btn btn-sm btn-step" id="btnRmStep">⏭ ก้าวต่อไป (+1)</button>
-          <button class="btn btn-sm btn-instant" id="btnRmInstant">⚡ ดูจุดชนทันที</button>
-          <button class="btn btn-sm btn-reset" id="btnRmReset">↺ เริ่มใหม่</button>
+          <button type="button" class="btn btn-sm btn-play" id="btnRmPlay">เล่นเดินทีละก้าว</button>
+          <button type="button" class="btn btn-sm btn-step" id="btnRmStep">เดินทีละ 1 ก้าว</button>
+          <button type="button" class="btn btn-sm btn-instant" id="btnRmInstant">ข้ามไปจุดชน</button>
+          <button type="button" class="btn btn-sm btn-reset" id="btnRmReset">เริ่มใหม่</button>
         </div>
       </div>
 
       <div class="sim-layout">
         <div class="sim-canvas-wrap">
-          <canvas id="rmCanvas" width="940" height="520"></canvas>
+          <canvas id="rmCanvas" width="940" height="530"></canvas>
           <div class="toggle-row">
             <label class="chk"><input type="checkbox" id="chkTriangles" checked /> แสดงสามเหลี่ยมมุมฉากซ้อนกัน</label>
-            <label class="chk"><input type="checkbox" id="chkFlatCompare" checked /> แสดงจุดเพี้ยนจากสูตรพื้นราบ (เส้นประสีส้ม)</label>
+            <label class="chk"><input type="checkbox" id="chkFlatCompare" checked /> แสดงจุดเพี้ยนจากสูตรพื้นราบ (เส้นประส้ม)</label>
           </div>
         </div>
 
@@ -242,61 +258,72 @@
             <input type="range" id="rmPitch" min="10" max="55" step="1" value="26" />
           </div>
           <div class="control-group">
-            <label for="rmStepSize">ระยะก้าวต่อครั้ง: <strong id="rmStepSizeVal">20 ม./ก้าว</strong></label>
+            <label for="rmStepSize">ระยะห่างแต่ละก้าว: <strong id="rmStepSizeVal">20 ม./ก้าว</strong></label>
             <input type="range" id="rmStepSize" min="10" max="40" step="5" value="20" />
           </div>
 
-          <!-- Live Step Telemetry -->
           <div class="telemetry-panel" id="rmTelemetry">
             <div class="tele-head">
               <span id="rmStepLabel">ก้าวที่ 0 (ระยะราบ 0 ม.)</span>
-              <span class="tele-badge" id="rmStatusBadge">พร้อมเดิน</span>
+              <span class="tele-badge" id="rmStatusBadge">จุดเริ่มต้น</span>
             </div>
             <div class="tele-row"><span>ความสูงลำแสงเลเซอร์:</span><strong id="rmRayMsl">-</strong></div>
             <div class="tele-row"><span>ความสูงพื้นภูเขาจริง:</span><strong id="rmGroundMsl">-</strong></div>
             <div class="tele-row"><span>ส่วนต่าง (ลำแสง − พื้น):</span><strong id="rmGap">-</strong></div>
           </div>
 
-          <!-- Interpolation & Error Comparison Result -->
           <div class="interp-panel" id="rmInterpBox">
-            <div class="interp-title">ผลการคำนวณจุดชนละเอียด (แบ่งสัดส่วน)</div>
-            <div class="interp-body" id="rmInterpText">กดปุ่ม <strong>▶ เล่นเดินทีละก้าว</strong> หรือ <strong>⏭ ก้าวต่อไป</strong> เพื่อดูการทำงานทีละก้าวครับ</div>
+            <div class="interp-title">การหาจุดชนละเอียดระหว่าง 2 ก้าว</div>
+            <div class="interp-body" id="rmInterpText">กดปุ่ม “เล่นเดินทีละก้าว” หรือ “เดินทีละ 1 ก้าว” เพื่อดูการทำงานทีละขั้นครับ</div>
           </div>
         </div>
       </div>
+
+      <p class="body-p mt-14">
+        <strong>ของจริงในแอปทำงานยังไง:</strong> เวลาใช้งานจริง โปรแกรมจะดึงความสูงภูเขาเรียงตามแนวกล้อง
+        <strong>200 จุด</strong> ยาวเผื่อไว้ 3 เท่าของระยะพื้นราบ (ช่วง 500 เมตร ถึง 12 กิโลเมตร)
+        โดยมีแหล่งข้อมูลความสูงสำรอง 3 ชั้นอัตโนมัติ (Google → Open-Meteo → Open-Elevation)
+        และจำค่าที่เคยดึงไว้ในเครื่อง 1 ชั่วโมง แต่ถ้าไม่มีเน็ตเลยหรือพื้นลาดลงเร็วกว่ามุมก้มกล้องจนไม่ชนดิน
+        โปรแกรมจะสลับกลับไปใช้สูตรพื้นราบให้แทนและขึ้นป้ายบอกชัดเจนบนหน้าจอทุกครั้ง
+      </p>
     </section>
 
     <!-- ===================================================================== -->
-    <!-- CHAPTER 4: OT Line Fire Adjustment Interactive Map                    -->
+    <!-- PART 4: OT Line Fire Adjustment                                       -->
     <!-- ===================================================================== -->
     <section id="ch4" class="chapter-card">
       <div class="chapter-header">
-        <span class="chapter-tag tag-amber">บทที่ 4</span>
+        <span class="chapter-tag tag-amber">เรื่องที่ 4</span>
         <div>
-          <h2>การคำนวณค่าปรับการยิง (ซ้าย/ขวา และ เพิ่ม/ลด บนเส้นเล็ง ตฝ.–เป้า)</h2>
-          <p class="chapter-sub">ลอง <strong>คลิกหรือลากจุดตกกระสุนสีส้ม</strong> บนแผนที่ด้านล่าง แล้วดูคำสั่งปรับการยิงเปลี่ยนตามทันที!</p>
+          <h2>วิธีคำนวณค่าปรับการยิง ซ้าย/ขวา และ เพิ่ม/ลด</h2>
+          <p class="chapter-sub">ใช้นิ้วหรือเมาส์ลากจุดตกกระสุนสีส้มบนแผนที่ เพื่อดูการแตกค่าปรับตามแนวเส้นเล็ง ตฝ.–เป้า</p>
         </div>
       </div>
 
-      <p class="lead-text">
-        จากพิกัด 3 จุด คือ <strong>จุดตรวจการณ์ (ตฝ.)</strong>, <strong>เป้าหมาย</strong> และ <strong>จุดตกกระสุน</strong>
-        โปรแกรมจะลากเส้นจากจุดตกมาตั้งฉากกับเส้นเล็ง ตฝ.–เป้า แล้วแตกเป็น 2 คำสั่งมาตรฐาน (ใช้หน่วยมุมทิศ <strong>6,400 มิลเลียม</strong>):
-        <strong>ตกซ้าย → สั่งขวา</strong>, <strong>ตกขวา → สั่งซ้าย</strong>, <strong>ตกสั้น → สั่งเพิ่ม</strong>, <strong>ตกเลย → สั่งลด</strong>
+      <p class="body-p">
+        พอยิงกระสุนนัดแรกแล้วเห็นจุดตกจริง โปรแกรมจะมีพิกัดครบ 3 จุด คือ <strong>จุดตรวจการณ์ (ตฝ.)</strong>,
+        <strong>เป้าหมาย</strong> และ <strong>จุดตกกระสุน</strong> จากนั้นโปรแกรมจะลากเส้นตรงจาก ตฝ. ไปหาเป้าหมาย
+        เรียกว่า <strong>เส้นเล็ง ตฝ.–เป้า</strong> แล้ววัดระยะกับมุมทิศเป็นหน่วย <strong>มิลเลียม (6,400 มิล = 360°)</strong>
+      </p>
+      <p class="body-p">
+        ขั้นตอนคำนวณคือลากเส้นจากจุดตกกระสุนมา <strong>ตั้งฉากกับเส้นเล็ง</strong> เพื่อแยกเป็น 2 แกน:
+        แกนขวางคือ <strong>ซ้าย/ขวา</strong> และแกนตามเส้นเล็งคือ <strong>เพิ่ม/ลด</strong>
+        จำง่าย ๆ ว่า <strong>เห็นตกทางไหน ให้สั่งแก้ไปทางตรงข้าม</strong>
+        (ตกซ้ายสั่งขวา, ตกขวาสั่งซ้าย, ตกสั้นสั่งเพิ่ม, ตกเลยสั่งลด)
       </p>
 
       <div class="sim-layout">
         <div class="sim-canvas-wrap">
-          <canvas id="otCanvas" width="900" height="520" class="draggable-canvas"></canvas>
+          <canvas id="otCanvas" width="900" height="530" class="draggable-canvas"></canvas>
           <div class="preset-bar">
-            <button class="btn btn-sm btn-play" id="btnRandomShot">🎯 สุ่มยิงนัดใหม่ (ลองฝึกเดา)</button>
-            <button class="btn btn-sm btn-step" id="btnToggleReveal">👁️ ซ่อน/เฉลยคำสั่งปรับ</button>
-            <button class="btn btn-sm btn-reset" id="btnResetShot">↺ กลับค่าตัวอย่าง (ขวา 75 · เพิ่ม 102)</button>
+            <button type="button" class="btn btn-sm btn-play" id="btnRandomShot">สุ่มจุดตกใหม่</button>
+            <button type="button" class="btn btn-sm btn-reset" id="btnResetShot">กลับค่าตัวอย่าง (ขวา 75 · เพิ่ม 102)</button>
           </div>
         </div>
 
         <div class="sim-controls">
-          <div class="command-banner" id="otCommandBanner">
-            <div class="cmd-lbl">คำสั่งปรับการยิงที่แสดงในแอป</div>
+          <div class="command-banner">
+            <div class="cmd-lbl">คำสั่งปรับการยิงที่แสดงบนหน้าจอแอป</div>
             <div class="cmd-main" id="otCommandText">ขวา 75 ม. · เพิ่ม 102 ม.</div>
           </div>
 
@@ -321,38 +348,59 @@
 
           <div class="formula-live" id="otFormulaLive"></div>
 
-          <div class="mini-note">
-            <strong>วิธีเล่น:</strong> เอาเมาส์คลิกค้างหรือใช้นิ้วลากจุดระเบิดสีส้มไปวางด้านซ้าย ขวา สั้น หรือเลยเป้าหมายดูครับ
-            สังเกตว่ามุมฉากสีเทาจะขยับตามเพื่อแยกเป็น <strong>ลูกศรสีเขียว (ซ้าย/ขวา)</strong> และ <strong>ลูกศรสีเขียวน้ำทะเล (เพิ่ม/ลด)</strong> เสมอ
+          <div class="note-box note-blue">
+            <strong>จุดที่คนรับช่วงต่อควรรู้:</strong> ระหว่างคิดเลขภายใน โปรแกรมเก็บทศนิยมเต็มที่โดยไม่ปัดเลขมิลเลียมก่อน
+            (เพราะถ้าปัดเร็วไปจะเพี้ยนราว 1 เมตรต่อระยะ 1 กม.) แล้วค่อยปัดเป็นจำนวนเต็มเมตรตอนแสดงผล
+            และถ้าผู้ใช้ไปแก้พิกัดของนัดนั้นใหม่ โปรแกรมจะล้างข้อความสรุปค่าแก้เก่าทิ้งทันทีเพื่อไม่ให้เผลอส่งค่าเก่า
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===================================================================== -->
-    <!-- CHAPTER 5: Interactive Quiz                                           -->
+    <!-- PART 5: Field Checklist & Handoff Notes                               -->
     <!-- ===================================================================== -->
     <section id="ch5" class="chapter-card">
       <div class="chapter-header">
-        <span class="chapter-tag tag-purple">บทที่ 5</span>
+        <span class="chapter-tag tag-slate">เรื่องที่ 5</span>
         <div>
-          <h2>แบบทดสอบทบทวนความเข้าใจ (5 ข้อ)</h2>
-          <p class="chapter-sub">ลองคลิกเลือกคำตอบเพื่อเช็กความเข้าใจ — ตรวจและอธิบายเหตุผลให้ทันที</p>
+          <h2>สิ่งที่ต้องระวังเวลาใช้งานจริงและการดูแลต่อ</h2>
+          <p class="chapter-sub">สรุปจากปัญหาที่เจอบ่อยหน้างาน เพื่อส่งต่อให้ชุดปฏิบัติงานใหม่</p>
         </div>
       </div>
 
-      <div id="quizContainer" class="quiz-list"></div>
-      <div class="quiz-footer">
-        <div class="quiz-score" id="quizScore">คะแนนของคุณ: ยังไม่ได้ตอบ</div>
-        <button class="btn btn-outline-dark" id="btnResetQuiz">↺ ทำแบบทดสอบใหม่อีกครั้ง</button>
+      <div class="handoff-grid">
+        <div class="handoff-item">
+          <h3>1. อย่าก้มกล้องตื้นเกินไป</h3>
+          <p>ถ้าก้มกล้องแค่ -5° ถึง -10° แค่มุมกล้องเพี้ยน 1 องศา ระยะทางราบจะเพี้ยนได้หลายสิบถึงหลายร้อยเมตร ควรบินเข้าใกล้หรือเพิ่มความสูงให้มุมก้มอยู่ช่วง <strong>-20° ถึง -60°</strong></p>
+        </div>
+        <div class="handoff-item">
+          <h3>2. ระวังเหล็กและรถตอนปล่อยโดรน</h3>
+          <p>อย่าปล่อยโดรนบนฝากระโปรงรถ ใกล้โครงเหล็ก หรือพื้นคอนกรีตเสริมเหล็ก เพราะจะกวนเข็มทิศทำให้ทิศที่กล้องชี้เพี้ยนทั้งแนว หากย้ายพื้นที่ไกลควรปรับเทียบเข็มทิศก่อนบิน</p>
+        </div>
+        <div class="handoff-item">
+          <h3>3. รอจับตำแหน่งจุดปล่อยให้ชัดก่อนบินขึ้น</h3>
+          <p>ความสูง 3 มิติอ้างอิงจากจุดปล่อยโดรน (Home Point) เสมอ ก่อนบินขึ้นต้องรอให้ดาวเทียมจับครบ (อย่างน้อย 8 ดวงขึ้นไป) และไม่ควรเปิดเครื่องทิ้งไว้นานเกินจำเป็นเพราะความกดอากาศอาจเปลี่ยน</p>
+        </div>
+        <div class="handoff-item">
+          <h3>4. สังเกตป้ายสถานะ 3 มิติ หรือ พื้นราบ</h3>
+          <p>ทุกครั้งที่จับพิกัดให้ดูป้ายสถานะใต้พิกัดเสมอ ถ้าขึ้นว่า “ตัดภูมิประเทศ 3 มิติ” แปลว่าใช้ข้อมูลภูเขาจริงแล้ว แต่ถ้าไม่มีเน็ตขึ้นว่า “ประมาณพื้นราบ” บนภูเขาให้บินเข้าไปใกล้เหนือเป้าแล้วก้มกล้องให้ชันที่สุด</p>
+        </div>
+        <div class="handoff-item">
+          <h3>5. นาฬิกามือถือและนามเรียกขาน</h3>
+          <p>การส่งตำแหน่งขึ้นหน้าจอ ผบช. ต้องให้เวลาในมือถือตรงกับเวลาจริง (เปิดตั้งเวลาอัตโนมัติไว้) และห้ามใช้นามเรียกขานซ้ำกับเครื่องอื่น หากมีแถบสีแดงขึ้นด้านบนหน้าจอนักบิน สามารถแตะแถบแดงเพื่อเปลี่ยนชื่อได้ทันที</p>
+        </div>
+        <div class="handoff-item">
+          <h3>6. การลงแอปอัปเดตทับเครื่องเดิม</h3>
+          <p>รุ่น V5 ต้องแจกและลงเฉพาะไฟล์ตัว <strong>Release</strong> เท่านั้นจึงจะลงทับของเดิมในหน่วยได้โดยประวัติภารกิจไม่หาย ส่วนรุ่น V4 ใช้ไฟล์ที่ลงชื่อด้วยคีย์ชุดเดิมของเครื่องพัฒนา และทั้งสองรุ่นทำงานร่วมกันได้บนจอ ผบช. เดียวกัน</p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p>สื่อการสอนระบบ <strong>Arty17 AIM Standalone</strong> • กองพันทหารปืนใหญ่ที่ 17 กรมทหารปืนใหญ่ที่ 4</p>
-      <p class="footer-sub">ออกแบบเพื่อการเรียนรู้หลักการคำนวณพิกัดและการปรับการยิงด้วยภาพจำลองที่เข้าใจง่าย</p>
+      <p><strong>คู่มือการทำงานระบบ Arty17 AIM</strong> • กองพันทหารปืนใหญ่ที่ 17 กรมทหารปืนใหญ่ที่ 4</p>
     </div>
   </footer>
 
