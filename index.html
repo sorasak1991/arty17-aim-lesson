@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>คู่มือการทำงานระบบ Arty17 AIM — หลักการหาพิกัดและการปรับการยิง</title>
+  <title>Arty17 AIM — หลักการหาพิกัดจากโดรนและการปรับการยิง</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
@@ -17,30 +17,31 @@
     <div class="topbar-inner">
       <a class="brand" href="#top">
         <span class="brand-badge">Arty17 AIM</span>
-        <span class="brand-title">คู่มือส่งมอบงาน</span>
+        <span class="brand-title">หาพิกัดและปรับการยิง</span>
       </a>
       <nav class="nav-links" aria-label="หัวข้อ">
-        <a href="#ch1">1. ที่มาและระบบ</a>
+        <a href="#ch1">1. ภาพรวมระบบ</a>
         <a href="#ch2">2. พื้นราบ</a>
         <a href="#ch3">3. เดินเส้น 3 มิติ</a>
         <a href="#ch4">4. ปรับการยิง</a>
-        <a href="#ch5">5. สิ่งที่ต้องระวัง</a>
+        <a href="#ch5">5. ข้อควรระวัง</a>
+        <a href="#download" class="nav-download">ดาวน์โหลดแอป</a>
       </nav>
     </div>
   </header>
 
-  <!-- Clean, grounded header -->
+  <!-- Hero -->
   <section id="top" class="hero">
     <div class="container hero-inner">
       <div class="hero-unit">กองพันทหารปืนใหญ่ที่ 17 กรมทหารปืนใหญ่ที่ 4</div>
-      <h1>คู่มือการทำงานระบบ Arty17 AIM<br/>หลักการหาพิกัดจากโดรนและการปรับการยิง</h1>
+      <h1>Arty17 AIM<br/>หลักการหาพิกัดจากโดรนและการปรับการยิง</h1>
       <p class="hero-desc">
-        เอกสารนี้ทำไว้ให้คนที่มารับช่วงต่อดูแลหรือใช้งานระบบ ได้เข้าใจที่มาและวิธีคิดของโปรแกรมตั้งแต่ต้นจนจบ
-        อธิบายด้วยภาษาธรรมดา พร้อมภาพจำลองให้ลองเลื่อนปรับดูด้วยตัวเองได้บนมือถือ
+        อธิบายการทำงานของระบบ วิธีหาพิกัดเป้าหมายจากมุมกล้องโดรน การเดินเส้นสายตาตัดภูเขา 3 มิติ
+        และการคำนวณปรับการยิง ซ้าย/ขวา เพิ่ม/ลด พร้อมภาพจำลองให้ลองเลื่อนปรับดูได้บนมือถือ
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#ch1">เริ่มอ่านตั้งแต่เรื่องที่ 1</a>
-        <a class="btn btn-outline" href="#ch3">ข้ามไปดูวิธีเดินเส้น 3 มิติ</a>
+        <a class="btn btn-outline" href="#download">ดาวน์โหลดแอป (APK)</a>
       </div>
     </div>
   </section>
@@ -48,49 +49,41 @@
   <main class="container">
 
     <!-- ===================================================================== -->
-    <!-- PART 1: Origin & System Handoff Overview                              -->
+    <!-- PART 1: System Overview (with Firebase note, no 4-era history)        -->
     <!-- ===================================================================== -->
     <section id="ch1" class="chapter-card">
       <div class="chapter-header">
         <span class="chapter-tag">เรื่องที่ 1</span>
         <div>
           <h2>ระบบนี้ทำขึ้นมาทำไม และแต่ละส่วนทำงานต่อกันยังไง</h2>
-          <p class="chapter-sub">ภาพรวมสำหรับผู้รับช่วงต่อ — รู้จักที่มา รุ่นของแอป และเส้นทางข้อมูล</p>
+          <p class="chapter-sub">รู้จักโครงสร้างระบบ รุ่นของแอป และเส้นทางข้อมูลระหว่างนักบินกับผู้บังคับบัญชา</p>
         </div>
       </div>
 
       <p class="body-p">
         เวลาออกสนามจริง ปัญหาที่เจอบ่อยคือผู้ตรวจการณ์หน้ามองไม่เห็นเป้าหมายเพราะมีภูเขาหรือต้นไม้บัง
-        ครั้นจะจัดหาโดรนทหารที่มีเลเซอร์วัดระยะก็ใช้งบสูงมาก หน่วยจึงเริ่มคิดเอา
+        ครั้นจะจัดหาโดรนทหารที่มีเลเซอร์วัดระยะก็ใช้งบสูงมาก หน่วยจึงนำ
         <strong>โดรนถ่ายภาพที่มีอยู่แล้ว มาต่อกับมือถือ Android</strong> เพื่อดึงภาพสดและค่าจากตัวโดรนมาคำนวณพิกัดเป้าหมาย
         แล้วคิดค่าปรับการยิง ซ้าย/ขวา เพิ่ม/ลด ให้เสร็จในเครื่องเดียว
       </p>
 
       <div class="note-box note-blue">
-        <strong>สิ่งที่คนรับช่วงต่อควรรู้เกี่ยวกับรุ่นของแอป:</strong>
-        ตอนนี้แอปที่หน่วยใช้งานจริงมี 2 รุ่นคู่กัน คือ <strong>รุ่น V4</strong> (สำหรับโดรน DJI รุ่นเก่า เช่น Mavic 2, Phantom 4)
+        <strong>รุ่นของแอปที่ใช้งานจริง:</strong>
+        มี 2 รุ่นคู่กัน คือ <strong>รุ่น V4</strong> (สำหรับโดรน DJI รุ่นเดิม เช่น Mavic 2, Phantom 4)
         และ <strong>รุ่น V5</strong> (สำหรับโดรนรุ่นใหม่ เช่น Mini 3/4 Pro, Mavic 3 Enterprise, Matrice 30/300/350)
         ทั้งสองรุ่นลงอยู่ในมือถือเครื่องเดียวกันได้ และส่งข้อมูลขึ้นหน้าจอผู้บังคับบัญชาเดียวกัน
       </div>
 
-      <h3 class="sub-title">ความเป็นมา 4 ช่วง (แตะเพื่ออ่านแต่ละช่วง)</h3>
-      <div class="era-tabs" id="eraTabs">
-        <button class="era-btn active" data-era="0">ช่วงที่ 1<br/><small>หน้าเว็บคิดเลข</small></button>
-        <button class="era-btn" data-era="1">ช่วงที่ 2<br/><small>แอปมือถือ V4</small></button>
-        <button class="era-btn" data-era="2">ช่วงที่ 3<br/><small>รุ่น V5 + 3 มิติ</small></button>
-        <button class="era-btn" data-era="3">ช่วงที่ 4<br/><small>รุ่น Standalone</small></button>
-      </div>
-      <div class="era-detail" id="eraDetail"></div>
-
       <h3 class="sub-title">เส้นทางข้อมูล 4 ขั้นตอน (ลองสลับดูตอนมีเน็ต กับ ตอนไม่มีเน็ต)</h3>
       <p class="body-p">
-        เวลาใช้งานจริงมักมีคนถามว่า <em>"ถ้าเข้าป่าไม่มีสัญญาณเน็ต แอปจะยังบินและหาพิกัดได้ไหม?"</em>
-        ลองกดสลับปุ่มด้านล่าง แล้วแตะที่กล่องแต่ละขั้นเพื่อดูว่าส่วนไหนยังทำงานได้ และส่วนไหนจะพักรอเน็ตครับ
+        ระบบส่งข้อมูลระหว่างเครื่องนักบินกับหน้าจอผู้บังคับบัญชา ใช้บริการ <strong>Firebase ของ Google</strong>
+        เป็นตัวกลางในการเก็บตำแหน่งล่าสุดและจองนามเรียกขานกันชื่อซ้ำ แต่ถ้าอยู่กลางป่าไม่มีสัญญาณเน็ต
+        แอปฝั่งนักบินก็ยังบินและคำนวณได้ตามปกติ ลองกดสลับปุ่มด้านล่างแล้วแตะแต่ละขั้นดูครับ
       </p>
 
       <div class="mode-toggle-bar">
-        <button class="mode-pill active" id="btnSysOnline">ตอนมีอินเทอร์เน็ต</button>
-        <button class="mode-pill" id="btnSysOffline">ตอนไม่มีเน็ต (ออฟไลน์)</button>
+        <button type="button" class="mode-pill active" id="btnSysOnline">ตอนมีอินเทอร์เน็ต</button>
+        <button type="button" class="mode-pill" id="btnSysOffline">ตอนไม่มีเน็ต (ออฟไลน์)</button>
       </div>
 
       <div class="pipeline" id="sysPipeline">
@@ -109,7 +102,7 @@
         <button type="button" class="pipe-node" data-step="2" id="nodeCloud">
           <div class="pipe-num">3</div>
           <div class="pipe-title">ระบบฝากข้อมูลกลาง</div>
-          <div class="pipe-sub" id="cloudSub">ส่งพิกัดสด</div>
+          <div class="pipe-sub" id="cloudSub">Firebase ของ Google</div>
         </button>
         <div class="pipe-arrow flowing" id="arrow34">→</div>
         <button type="button" class="pipe-node" data-step="3" id="nodeCmd">
@@ -195,7 +188,7 @@
     </section>
 
     <!-- ===================================================================== -->
-    <!-- PART 3: 3D Ray Marching (Deep, Plain-Thai Explanation + Motion)       -->
+    <!-- PART 3: 3D Ray Marching                                               -->
     <!-- ===================================================================== -->
     <section id="ch3" class="chapter-card highlight-card">
       <div class="chapter-header">
@@ -349,23 +342,23 @@
           <div class="formula-live" id="otFormulaLive"></div>
 
           <div class="note-box note-blue">
-            <strong>จุดที่คนรับช่วงต่อควรรู้:</strong> ระหว่างคิดเลขภายใน โปรแกรมเก็บทศนิยมเต็มที่โดยไม่ปัดเลขมิลเลียมก่อน
+            <strong>ความละเอียดในการคำนวณ:</strong> ระหว่างคิดเลขภายใน โปรแกรมเก็บทศนิยมเต็มที่โดยไม่ปัดเลขมิลเลียมก่อน
             (เพราะถ้าปัดเร็วไปจะเพี้ยนราว 1 เมตรต่อระยะ 1 กม.) แล้วค่อยปัดเป็นจำนวนเต็มเมตรตอนแสดงผล
-            และถ้าผู้ใช้ไปแก้พิกัดของนัดนั้นใหม่ โปรแกรมจะล้างข้อความสรุปค่าแก้เก่าทิ้งทันทีเพื่อไม่ให้เผลอส่งค่าเก่า
+            และถ้าไปแก้พิกัดของนัดนั้นใหม่ โปรแกรมจะล้างข้อความสรุปค่าแก้เก่าทิ้งทันทีเพื่อไม่ให้เผลอส่งค่าเก่า
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===================================================================== -->
-    <!-- PART 5: Field Checklist & Handoff Notes                               -->
+    <!-- PART 5: Field Checklist                                               -->
     <!-- ===================================================================== -->
     <section id="ch5" class="chapter-card">
       <div class="chapter-header">
         <span class="chapter-tag tag-slate">เรื่องที่ 5</span>
         <div>
-          <h2>สิ่งที่ต้องระวังเวลาใช้งานจริงและการดูแลต่อ</h2>
-          <p class="chapter-sub">สรุปจากปัญหาที่เจอบ่อยหน้างาน เพื่อส่งต่อให้ชุดปฏิบัติงานใหม่</p>
+          <h2>สิ่งที่ต้องระวังเวลาใช้งานจริง</h2>
+          <p class="chapter-sub">สรุปจากปัญหาที่เจอบ่อยหน้างาน เพื่อช่วยให้ได้พิกัดที่แม่นยำที่สุด</p>
         </div>
       </div>
 
@@ -388,11 +381,50 @@
         </div>
         <div class="handoff-item">
           <h3>5. นาฬิกามือถือและนามเรียกขาน</h3>
-          <p>การส่งตำแหน่งขึ้นหน้าจอ ผบช. ต้องให้เวลาในมือถือตรงกับเวลาจริง (เปิดตั้งเวลาอัตโนมัติไว้) และห้ามใช้นามเรียกขานซ้ำกับเครื่องอื่น หากมีแถบสีแดงขึ้นด้านบนหน้าจอนักบิน สามารถแตะแถบแดงเพื่อเปลี่ยนชื่อได้ทันที</p>
+          <p>การส่งตำแหน่งขึ้นหน้าจอ ผบช. ผ่าน Firebase ต้องให้เวลาในมือถือตรงกับเวลาจริง (เปิดตั้งเวลาอัตโนมัติไว้) และห้ามใช้นามเรียกขานซ้ำกับเครื่องอื่น หากมีแถบสีแดงขึ้นด้านบนหน้าจอนักบิน สามารถแตะแถบแดงเพื่อเปลี่ยนชื่อได้ทันที</p>
         </div>
         <div class="handoff-item">
           <h3>6. การลงแอปอัปเดตทับเครื่องเดิม</h3>
-          <p>รุ่น V5 ต้องแจกและลงเฉพาะไฟล์ตัว <strong>Release</strong> เท่านั้นจึงจะลงทับของเดิมในหน่วยได้โดยประวัติภารกิจไม่หาย ส่วนรุ่น V4 ใช้ไฟล์ที่ลงชื่อด้วยคีย์ชุดเดิมของเครื่องพัฒนา และทั้งสองรุ่นทำงานร่วมกันได้บนจอ ผบช. เดียวกัน</p>
+          <p>รุ่น V5 ต้องใช้ไฟล์ตัว <strong>Release</strong> เท่านั้นจึงจะลงทับของเดิมในหน่วยได้โดยประวัติภารกิจไม่หาย ส่วนรุ่น V4 ใช้ไฟล์ที่ลงชื่อด้วยคีย์ชุดเดิม และทั้งสองรุ่นทำงานร่วมกันได้บนจอ ผบช. เดียวกัน</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- DOWNLOAD / TRY APP SECTION (Link + QR Code)                           -->
+    <!-- ===================================================================== -->
+    <section id="download" class="chapter-card download-card">
+      <div class="chapter-header">
+        <span class="chapter-tag tag-green">ดาวน์โหลดและลองใช้งาน</span>
+        <div>
+          <h2>โปรแกรมหาพิกัดและปรับการยิง (APK สำหรับ Android)</h2>
+          <p class="chapter-sub">แตะปุ่มด้านล่างเพื่อเปิดโฟลเดอร์ดาวน์โหลด หรือสแกน QR Code จากมือถืออีกเครื่องได้ทันที</p>
+        </div>
+      </div>
+
+      <div class="download-layout">
+        <div class="qr-wrap">
+          <img src="qr_apk_drive.png" alt="QR Code ดาวน์โหลดโปรแกรมหาพิกัดและปรับการยิง APK" class="qr-img" />
+          <div class="qr-cap">สแกน QR Code เพื่อเปิดโฟลเดอร์ดาวน์โหลด APK</div>
+        </div>
+        <div class="download-info">
+          <p class="body-p">
+            ไฟล์ติดตั้งแอป <strong>Arty17 AIM</strong> เก็บไว้ในโฟลเดอร์ Google Drive ด้านล่าง
+            เลือกติดตั้งให้ตรงรุ่นโดรนที่ใช้งาน (V4 สำหรับโดรนรุ่นเดิม / V5 สำหรับโดรนรุ่นใหม่ หรือลงคู่กันทั้งสองตัวในเครื่องเดียวได้)
+          </p>
+          <a
+            class="btn btn-play btn-download-main"
+            href="https://drive.google.com/drive/folders/1SH3SWhCFG0KMq4cD2IdY4WUAiT6lPp0m"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            เปิดโฟลเดอร์ดาวน์โหลดแอป (Google Drive)
+          </a>
+          <div class="drive-url-box">
+            <a href="https://drive.google.com/drive/folders/1SH3SWhCFG0KMq4cD2IdY4WUAiT6lPp0m" target="_blank" rel="noopener noreferrer">
+              https://drive.google.com/drive/folders/1SH3SWhCFG0KMq4cD2IdY4WUAiT6lPp0m
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -400,7 +432,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p><strong>คู่มือการทำงานระบบ Arty17 AIM</strong> • กองพันทหารปืนใหญ่ที่ 17 กรมทหารปืนใหญ่ที่ 4</p>
+      <p><strong>Arty17 AIM</strong> • กองพันทหารปืนใหญ่ที่ 17 กรมทหารปืนใหญ่ที่ 4</p>
     </div>
   </footer>
 
