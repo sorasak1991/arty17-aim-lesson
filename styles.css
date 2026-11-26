@@ -21,15 +21,19 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 body {
   font-family: "Sarabun", "TH Sarabun New", "TH SarabunPSK", sans-serif;
   background: var(--bg);
   color: var(--text);
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.65;
   -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 .reading-progress {
@@ -271,13 +275,15 @@ main.container {
 
 .inline-formula {
   display: inline-block;
+  max-width: 100%;
   background: #edf3fa;
   color: var(--navy);
   font-weight: 700;
   padding: 2px 10px;
   border-radius: 8px;
   border: 1px solid #bfdbfe;
-  margin: 2px 0;
+  margin: 4px 0;
+  word-break: break-word;
 }
 
 .note-box {
@@ -371,21 +377,19 @@ main.container {
 }
 
 .pipeline {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  overflow-x: auto;
-  padding: 4px 2px 8px;
-  -webkit-overflow-scrolling: touch;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 4px 0 8px;
 }
 
 .pipe-node {
-  flex: 1;
-  min-width: 132px;
+  width: 100%;
+  min-width: 0;
   background: #f8fafc;
   border: 2px solid #cbd5e1;
   border-radius: 14px;
-  padding: 12px 10px;
+  padding: 12px 8px;
   text-align: center;
   cursor: pointer;
   font-family: inherit;
@@ -418,15 +422,16 @@ main.container {
 .pipe-title {
   font-weight: 800;
   color: var(--navy);
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .pipe-sub {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--muted);
 }
 
 .pipe-arrow {
+  display: none;
   font-size: 20px;
   font-weight: 800;
   color: #2563eb;
@@ -794,6 +799,17 @@ canvas {
   }
   .mode-toggle-bar {
     display: flex;
+  }
+  .pipeline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pipe-node {
+    flex: 1;
+  }
+  .pipe-arrow {
+    display: block;
   }
   .sim-layout {
     grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr);
